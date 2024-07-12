@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     "strict": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -8,5 +9,5 @@
       "@@/*": [".dumi/tmp/*"]
     }
   },
-  "include": [".dumirc.ts"]
+  "include": [".dumirc.ts", "src", "docs"]
 }
