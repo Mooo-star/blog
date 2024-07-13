@@ -1,10 +1,10 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  favicons: false,
   fastRefresh: true,
   base: '/blog/',
   publicPath: '/blog/',
+  favicons: false,
   themeConfig: {
     name: "Moooo's blog",
     logo: false,

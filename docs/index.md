@@ -1,8 +1,8 @@
 ---
-title: A static site based on dumi
+title: Mooo's blog
 hero:
-  title: Site
-  description: Moooo's blog
+  title: Mooo's blog
+  description: 记录前端每一点
   actions:
     - text: 现在开始
       link: ./engineer
