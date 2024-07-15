@@ -1,0 +1,19 @@
+:root,
+body {
+  height: 100%;
+}
+
+.dumi-default-hero {
+  min-height: calc(100vh - 76px);
+  max-width: none;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: -76px auto -57px auto;
+
+  &::before {
+    bottom: -76px;
+  }
+}
