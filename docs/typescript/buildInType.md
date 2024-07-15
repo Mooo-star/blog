@@ -6,6 +6,7 @@ keywords:
   - 内置类型
 group:
   title: TypeScript
+  order: 1
 toc: content
 ---
 
