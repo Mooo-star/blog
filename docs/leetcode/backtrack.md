@@ -298,3 +298,52 @@ var subsetsWithDup = function (nums) {
   return result;
 };
 ```
+
+### <a href="https://leetcode.cn/problems/n-queens/description/" target="_blank" rel="noopener noreferrer">N 皇后 - leetcode 51</a>
+
+```js
+/**
+ * @param {number} n
+ * @return {string[][]}
+ */
+var solveNQueens = function (n) {
+  const res = [];
+  const arr = Array(n)
+    .fill(-1)
+    .map(() => Array(n).fill('.'));
+
+  function backtrack(arr, row) {
+    if (row === n) {
+      res.push(arr.map((i) => i.join('')));
+      return;
+    }
+
+    for (let i = 0; i < n; i++) {
+      if (valid(arr, row, i)) {
+        arr[row][i] = 'Q';
+        backtrack(arr, row + 1);
+        arr[row][i] = '.';
+      }
+    }
+  }
+
+  function valid(arr, row, col) {
+    for (let i = 0; i < row; i++) {
+      if (arr[i][col] === 'Q') return false;
+    }
+
+    for (let i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
+      if (arr[i][j] === 'Q') return false;
+    }
+
+    for (let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+      if (arr[i][j] === 'Q') return false;
+    }
+
+    return true;
+  }
+
+  backtrack(arr, 0);
+  return res;
+};
+```
