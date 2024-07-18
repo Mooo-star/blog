@@ -75,3 +75,109 @@ Node.js 中，标识位代表着对文件的操作方式，如可读、可写、
 使用 `fs` 前，我们要先来了解一下 fs 的 **同步/异步** 操作。
 
 如你所见，同步就是按照你写的代码顺序，一点一点的执行。异步当然就是和你写的代码顺序有所差异了。
+
+首先，fs 的使用有三种方式
+
+- 同步
+- callback
+- promise
+
+#### 同步方式
+
+拿官方的例子来说一下
+
+```js
+const { unlinkSync } = require('node:fs')
+
+try {
+  unlinkSync('/temp/hello');
+  console.log('successfully deleted /temp/hello')
+
+} cache(error) {
+  // handle error
+  console.log('unlinkSync has error')
+}
+
+console.log('unlink done')
+```
+
+这块儿代码按照顺序执行，输出如下
+
+```
+successfully deleted /temp/hello
+unlink done
+
+or
+
+unlinkSync has error
+unlink done
+```
+
+可以看到，同步的 API 会阻塞 Node.js 事件循环和下一步的执行，直到操作完成。有异常会立即跑出，可以用 `try ... catch` 来处理，也可以允许冒泡。
+
+#### callback
+
+```js
+const { unlink } = require('node:fs');
+
+unlink('/temp/hello', (err) => {
+  if (err) {
+    console.log('unlink has error');
+    return;
+  }
+
+  console.log('successfully deleted /temp/hello');
+});
+
+console.log('unlink done');
+```
+
+执行结果
+
+```
+unlink done
+successfully deleted /temp/hello
+
+or
+
+unlink done
+unlink has error
+```
+
+这个时候执行就已经不一样了，很明显的，永远先输出后面的 `unlink done` ，因为回调的形式将回调函数异步调用，经过事件循环，在合适的阶段去执行这个函数。但是第一个参数始终保留用于异常。如果操作成功，则第一个参数为 `null` 或者 `undefined`，反之返回错误信息。
+
+#### Promise
+
+```js
+const { unlink } = require('node:fs/promises');
+
+(async function (path) {
+  try {
+    await unlink(path);
+    console.log(`successfully deleted ${path}`);
+  } catch (error) {
+    console.log('unlink promise has error');
+  }
+})('/tmp/hello');
+
+console.log('unlink promise done');
+```
+
+执行结果
+
+```
+unlink done
+successfully deleted /temp/hello
+
+or
+
+unlink done
+unlink promise has error
+```
+
+结果上与 callback 的形式一致，因为这也是一个异步操作，但是他的写法上又与同步的相似，使用 `try ... catch` 捕获异常。当然，使用 `then` `catch` 的写法也是可以的。
+
+到这里，相信大家已经对上面的三种形式有了认知。这个时候有的小伙伴就要提问了，官方提供了三种方法，我们该怎么去选择使用哪一种呢？那接下来就要去介绍一下这三种方式的优劣了
+
+1. 同步形式
+   - sdfasfs
