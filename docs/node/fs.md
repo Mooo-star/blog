@@ -179,5 +179,45 @@ unlink promise has error
 
 到这里，相信大家已经对上面的三种形式有了认知。这个时候有的小伙伴就要提问了，官方提供了三种方法，我们该怎么去选择使用哪一种呢？那接下来就要去介绍一下这三种方式的优劣了
 
-1. 同步形式
-   - sdfasfs
+**同步形式**
+
+优势
+
+- 简单易用：代码结构清晰，逻辑简单，容易理解。
+- 无需回调或 Promise：避免了回调地狱或异步处理的复杂性。
+
+劣势
+
+- 阻塞 I/O：在 I/O 操作完成之前，整个事件循环会被阻塞，无法处理其他任务。这在处理大量或长时间的 I/O 操作时，可能会导致应用程序性能下降，特别是在高并发环境中。
+- 不适用于高并发场景：由于阻塞特性，不适合需要处理大量并发请求的服务器应用。
+
+**callback**
+
+优势
+
+- 非阻塞 I/O：回调方式是异步的，I/O 操作不会阻塞事件循环，可以在 I/O 操作进行时继续处理其他任务。
+- 高效处理并发：适合需要处理大量并发请求的服务器应用。
+
+劣势
+
+- 回调地狱：当有多个嵌套回调时，代码结构会变得复杂且难以维护。
+- 错误处理复杂：需要在每个回调中处理错误，容易导致错误处理逻辑分散。
+
+**Promise**
+
+优势
+
+- 非阻塞 I/O：与回调方式一样，Promise 方式是异步的，I/O 操作不会阻塞事件循环。
+- 代码结构清晰：使用 async/await 语法可以使异步代码看起来像同步代码，减少嵌套，改善代码可读性。
+- 错误处理集中：可以使用 try/catch 进行集中错误处理，简化错误处理逻辑。
+
+劣势
+
+- 学习曲线：对不熟悉 Promise 或 async/await 的开发者来说，可能需要一些学习时间。
+- 性能开销：在某些情况下，Promise 方式的性能可能略低于直接使用回调方式，但在大多数情况下，这种差异可以忽略不计。
+
+> PS: [The callback-based versions of the `node:fs` module APIs are preferable over the use of the promise APIs when maximal performance (both in terms of execution time and memory allocation) is required.](https://nodejs.org/docs/latest/api/fs.html#callback-example)
+> 这句话来自 Node 官方文档，翻译过来就是：
+> 当需要最大性能（在执行时间和内存分配方面）时，node:fs 模块 API 的基于回调的版本比使用 promise API 更可取。
+>
+> 至于如何抉择，就看各位大佬们的抉择了
