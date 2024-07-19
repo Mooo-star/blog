@@ -1,5 +1,6 @@
 import { defineConfig } from 'dumi';
 import nav from './config/nav';
+import sidebar from './config/sidebar';
 
 export default defineConfig({
   fastRefresh: true,
@@ -12,5 +13,9 @@ export default defineConfig({
     logo: false,
     footer: 'Copyright © 2024 | Powered by Mooo',
     nav,
+    sidebar,
+    socialLinks: {
+      github: 'https://github.com/Mooo-star/blog',
+    },
   },
 });
