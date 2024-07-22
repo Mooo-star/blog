@@ -4,4 +4,5 @@ export default {
   '/fragment': fragmentNav,
   '/leetcode': fragmentNav,
   '/typescript': fragmentNav,
+  '/javascript': fragmentNav,
 };
