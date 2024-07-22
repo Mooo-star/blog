@@ -227,3 +227,103 @@ unlink promise has error
 下面介绍一下基础的使用吧。
 
 ### 读取文件
+
+```js
+const { promises: fsPromise, readFile, readFileSync } = require('node:fs');
+const { resolve } = require('node:path');
+
+const filePath = resolve(__dirname, '../../static/saying.txt');
+
+/**
+ * promise 形式
+ */
+fsPromise
+  .readFile(resolve(__dirname, '../../output/bigFile.txt'), 'utf-8')
+  .then((res) => {
+    console.log('res', res);
+  })
+  .catch((err) => {
+    console.log('读取文件报错', err);
+  });
+
+/**
+ * callback 形式
+ */
+readFile(filePath, 'utf-8', (err, data) => {
+  if (err) {
+    console.log('读取文件报错', err);
+    return;
+  }
+
+  console.log('res', data);
+});
+
+/**
+ * 同步调用
+ */
+try {
+  const res = readFileSync(filePath, 'utf-8');
+  console.log('res', res);
+} catch (error) {
+  console.log('读取文件报错', error);
+}
+```
+
+### 写入文件
+
+```js
+const { promises: fsPromise, writeFile, writeFileSync } = require('node:fs');
+const { resolve } = require('node:path');
+
+const FILE_PATH = resolve(__dirname, '../../output/saying.txt');
+const FILE_DATA =
+  '通常让人迷茫的原因只有一个，那就是本该拼搏的年纪，却想得太多，做得太少，人生在于拼搏，想十次不如干一次。想要赢，就别怕输，强者就是把对他人“羡慕嫉妒恨”的时间，全部用来提高自己。\n';
+
+/**
+ * Promise
+ */
+fsPromise
+  .writeFile(FILE_PATH, FILE_DATA, {
+    flag: 'a',
+  })
+  .then(() => {
+    console.log('写入文件成功');
+  })
+  .catch((err) => {
+    console.log('写入文件出错了', err);
+  });
+
+/**
+ * callback
+ */
+writeFile(
+  FILE_PATH,
+  FILE_DATA,
+  {
+    flag: 'a',
+  },
+  (err) => {
+    if (err) {
+      console.log('写入文件出错了', err);
+      return;
+    }
+    console.log('写入文件成功');
+  },
+);
+
+/**
+ * 同步
+ */
+try {
+  writeFileSync(FILE_PATH, FILE_DATA, {
+    flag: 'a',
+  });
+  console.log('写入文件成功');
+} catch (error) {
+  console.log('写入文件出错了', error);
+}
+```
+
+### 总结
+
+看到这里，简单的使用 fs 应该就没有什么问题了，最后附上一个使用[流式生成大文件的示例](https://github.com/Mooo-star/node/blob/main/src/fs/bigfile.js)，大家有兴趣的可以自己看下。对了，本文中所有的示例都在这个[仓库]((https://github.com/Mooo-star/node/)中，可以自己 fork 跑跑看。
