@@ -77,7 +77,7 @@ JS 的单线程，与它的用途有关。
    3. 主要作用为页面渲染，脚本执行，事件处理等；
 
 <div align='center'>
-![](https://mooo-star.github.io/blog/browser_process.png)
+  <img src="https://mooo-star.github.io/blog/browser_process.png">
 </div>
 
 ### 为什么浏览器需要多进程
@@ -181,7 +181,7 @@ console.log('2');
 5. 反复执行，就是我们所谓的事件循环(Event Loop)；
 
 <div align='center'>
-   <img src="https://mooo-star.github.io/blog/javascript_eventloop.png" >
+  <img src="https://mooo-star.github.io/blog/javascript_eventloop.png">
 </div>
 
 ## 宏任务与微任务
