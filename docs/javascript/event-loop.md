@@ -180,10 +180,6 @@ console.log('2');
 4. JS 引擎线程只会执行执行栈中的事件，执行栈中的代码执行完毕，就会读取事件队列中的事件并添加到执行栈中继续执行；
 5. 反复执行，就是我们所谓的事件循环(Event Loop)；
 
-<div align='center'>
-  <img src="https://mooo-star.github.io/blog/javascript_eventloop.png">
-</div>
-
 ## 宏任务与微任务
 
 ### 宏任务
@@ -197,8 +193,8 @@ console.log('2');
 1. 主代码块；
 2. setTimeout；
 3. setInterval；
-4. setImmediate () - Node；
-5. requestAnimationFrame () - 浏览器
+4. setImmediate - Node；
+5. requestAnimationFrame - 浏览器
 
 ### 微任务
 
@@ -210,8 +206,8 @@ ES6 新引入了 Promise 标准，同时浏览器实现上多了一个 microtask
 
 常见的微任务：
 
-1. process.nextTick () -Node；
-2. Promise.then()；
+1. process.nextTick - Node；
+2. Promise.then；
 3. catch；finally；
 4. Object.observe；
 5. MutationObserver；
