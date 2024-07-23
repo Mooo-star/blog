@@ -32,6 +32,10 @@ export default [
     link: '/javascript/garbage-collection',
   },
   {
+    title: '事件循环',
+    link: '/javascript/event-loop',
+  },
+  {
     title: '浮点数精度问题',
     link: '/javascript/floating-point-precision',
   },

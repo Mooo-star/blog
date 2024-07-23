@@ -38,6 +38,10 @@ export default [
         title: '浮点数精度问题',
         link: '/javascript/floating-point-precision',
       },
+      {
+        title: '事件循环',
+        link: '/javascript/event-loop',
+      },
     ],
   },
   {
