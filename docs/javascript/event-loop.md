@@ -133,7 +133,7 @@ JS 的单线程，与它的用途有关。
 2. 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件，将这个回调再放入事件队列中再由 JavaScript 引擎执行；
 3. 简单说就是当执行到一个 http 异步请求时，就把异步请求事件添加到异步请求线程，等收到响应(准确来说应该是 http 状态变化)，再把回调函数添加到事件队列，等待 js 引擎线程来执行；
 
-## 事件循环
+## 事件循环基础
 
 JS 分为同步任务和异步任务。
 
@@ -176,4 +176,40 @@ console.log('2');
 4. JS 引擎线程只会执行执行栈中的事件，执行栈中的代码执行完毕，就会读取事件队列中的事件并添加到执行栈中继续执行；
 5. 反复执行，就是我们所谓的事件循环(Event Loop)；
 
-![](https://mooo-star.github.io/blog/javascript_eventloop.png)
+<div align='center'>
+   <img src="https://mooo-star.github.io/blog/javascript_eventloop.png" >
+</div>
+
+## 宏任务与微任务
+
+### 宏任务
+
+在 ECMAScript 中， macrotask 也被称为 task。我们可以将每次执行栈执行的代码当做是一个宏任务(包括每次从事件队列中获取一个事件回调并放到执行栈中执行)， 每一个宏任务会从头到尾执行完毕，不会执行其他。
+
+由于 JS 引擎线程和 GUI 渲染线程是互斥的关系，浏览器为了能够使宏任务和 DOM 任务有序的进行，会在一个宏任务执行结果后，在下一个宏任务执行前，GUI 渲染线程开始工作，对页面进行渲染。
+
+常见的宏任务
+
+1. 主代码块；
+2. setTimeout；
+3. setInterval；
+4. setImmediate () - Node；
+5. requestAnimationFrame () - 浏览器
+
+### 微任务
+
+ES6 新引入了 Promise 标准，同时浏览器实现上多了一个 microtask 微任务概念，在 ECMAScript 中， microtask 也被称为 jobs。
+
+我们已经知道宏任务结束后，会执行渲染，然后执行下一个宏任务， 而微任务可以理解成在当前宏任务执行后立即执行的任务。
+
+当一个宏任务执行完，会在渲染前，将执行期间所产生的所有微任务都执行完。
+
+常见的微任务：
+
+1. process.nextTick () -Node；
+2. Promise.then()；
+3. catch；finally；
+4. Object.observe；
+5. MutationObserver；
+
+## 完整的事件循环
