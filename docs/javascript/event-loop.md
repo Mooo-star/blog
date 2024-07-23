@@ -176,4 +176,4 @@ console.log('2');
 4. JS 引擎线程只会执行执行栈中的事件，执行栈中的代码执行完毕，就会读取事件队列中的事件并添加到执行栈中继续执行；
 5. 反复执行，就是我们所谓的事件循环(Event Loop)；
 
-![](/javascript_eventloop.png)
+![](https://mooo-star.github.io/blog/javascript_eventloop.png)
