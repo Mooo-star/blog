@@ -207,7 +207,7 @@ commitDeletion 方法内部的完整逻辑实际上是比较复杂的，原因�
 
 假设有如下的代码：
 
-```jsx
+```jsx | pure
 import { useRef } from 'react';
 
 function SomeClassComponent() {

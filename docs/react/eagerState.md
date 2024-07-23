@@ -23,7 +23,7 @@ toc: content
 - eagerState
 - bailout
 
-```jsx
+```jsx | pure
 import { useState } from 'react';
 
 // 子组件

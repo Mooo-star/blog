@@ -24,7 +24,7 @@ ContextAPI 经历过一次重构，重构的原因和 bailout 策略相关。
 
 例如，有如下的代码：
 
-```jsx
+```jsx | pure
 import { useState, useContext, createContext } from 'react';
 
 // 创建了一个 context 上下文

@@ -98,7 +98,7 @@ appendAllChildren = function(parent, workInProgress, ...){
 
 appendAllChildren 方法实际上就是在处理下一级的 DOM 元素，而且在 appendAllChildren 里面的遍历过程会更复杂一些，会多一些判断，因为 FiberNode 最终形成的 FiberTree 的层次和最终 DOMTree 的层次可能是有区别：
 
-```jsx
+```jsx | pure
 function World() {
   return <span>World</span>;
 }
@@ -213,7 +213,7 @@ function diffProperties(
 
 所有更新了的属性的 key 和 value 会保存在当前 FiberNode.updateQueue 里面，数据是以 key、value 作为数组相邻的两项的形式进行保存的
 
-```jsx
+```jsx | pure
 import { useState } from 'react';
 
 export default () => {

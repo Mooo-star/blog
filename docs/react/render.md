@@ -38,7 +38,7 @@ const UI = commit(state); // 根据上一步计算出来的 state 渲染出 UI
 
 接下来我们来看一个例子：
 
-```jsx
+```jsx | pure
 import { useState } from 'react';
 
 export default () => {

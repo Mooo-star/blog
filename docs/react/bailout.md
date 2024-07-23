@@ -52,7 +52,7 @@ Legacy Context 指的是旧的 ContextAPI，ContextAPI 重构过一次，之所�
 
 这里所指的 FiberNode.type 没有变化，指的是不能有例如从 div 变为 p 这种变化。
 
-```jsx
+```jsx | pure
 function App() {
   const Child = () => <div>child</div>;
   return <Child />;

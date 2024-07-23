@@ -119,7 +119,7 @@ workInProgress.alternate = current;
 </body>
 ```
 
-```jsx
+```jsx | pure
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -163,7 +163,7 @@ ReactDOM.createRoot(rootElement).render(<App />);
 
 另外值得一提的是，开发者是可以在一个页面创建多个应用的，比如：
 
-```jsx
+```jsx | pure
 import ReactDOM from 'react-dom';
 
 ReactDOM.createRoot(rootElement1).render(<App1 />);
