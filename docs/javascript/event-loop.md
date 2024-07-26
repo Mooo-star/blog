@@ -214,8 +214,77 @@ ES6 新引入了 Promise 标准，同时浏览器实现上多了一个 microtask
 
 ## 完整的事件循环
 
-通过上面的描述，事件循环各个部分的知识点已经全部说完了，接下来说一下主角 ---- 事件循环。
+通过上面的描述，事件循环各个部分的知识点已经全部说完了，接下来说一下主角 ---- 事件循环。先附上图一份，有不对的地方欢迎大佬指正。
 
 <div align='center'>
   <img src="https://mooo-star.github.io/blog/event_loop.png">
 </div>
+
+接下来，用一段代码来解释一下
+
+```js
+console.log('开始执行');
+
+function print() {
+  console.log('同步函数执行 1');
+}
+
+print();
+
+setTimeout(() => {
+  console.log('setTimeout 执行');
+}, 1000);
+
+setInterval(() => {
+  console.log('setInterval 执行');
+}, 500);
+
+fetch('https://www.baidu.com').then(() => {
+  console.log('请求');
+});
+
+new Promise((resolve) => {
+  setTimeout(() => {
+    console.log('promise 中的 setTimeout');
+  }, 300);
+
+  console.log('promise 执行');
+  resolve(123);
+}).then((res) => {
+  console.log('promise 输出');
+});
+```
+
+执行结果
+
+```
+开始执行
+同步函数执行 1
+promise 执行
+promise 输出
+请求
+promise 中的 setTimeout
+setInterval 执行
+setTimeout 执行
+setInterval 执行 xN
+```
+
+来解释一下
+
+首先从上到下执行代码，输出所有能执行的 `console` ，遇到 promise setInterval setTimeout request ，将他们交给对应的线程去监听。这时候各个线程的情况如下
+
+- 定时器线程：setTimeout「1000s」、setInterval「500s」、setTimeout「300s」
+- http 异步请求线程： fetch
+- 微队列：Promise.resolve
+
+这一遍下来，浏览器输出
+
+```
+开始执行
+同步函数执行 1
+promise 执行
+```
+
+接下来就是去循环询问有没有可以执行的，promise 最快，并且优先级最高，所以接下来先打印 `promise 输出` ,后面就是谁先准备好，打印谁。由于 `setInterval` 并没有清理函数，所以他会一直执行。
+
+这就是一个简单的事件循环，简单的理解就是 JS 正常执行代码，遇到异步任务扔给对应的任务队列处理，遇到微任务扔给微任务队列处理，然后下次看谁先好了执行谁。不过微任务有优先权，只要他好了，他就优先于其他异步任务去执行。
