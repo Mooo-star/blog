@@ -214,4 +214,8 @@ ES6 新引入了 Promise 标准，同时浏览器实现上多了一个 microtask
 
 ## 完整的事件循环
 
-> 再梳理一下，补个图
+通过上面的描述，事件循环各个部分的知识点已经全部说完了，接下来说一下主角 ---- 事件循环。
+
+<div align='center'>
+  <img src="https://mooo-star.github.io/blog/event_loop.png">
+</div>

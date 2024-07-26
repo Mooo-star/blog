@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" modified="2024-07-26T08:48:43.394Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="Wtvwa3NWo64f8TuACvso" version="24.7.3" type="device">
+  <diagram name="第 1 页" id="RbPLKmhWJ3Q2b7AlaJQn">
+    <mxGraphModel dx="1194" dy="731" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="unaeFwrHLOZ_5Hp_Zb34-16" target="unaeFwrHLOZ_5Hp_Zb34-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-16" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="429" y="80" width="232" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-13" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="440" y="305" width="210" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-11" value="" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="440" y="120" width="210" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-1" value="setTimeout、setInterval" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="453" y="150" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-2" value="click、mouse、blur、focus" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="453" y="195" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-3" value="http、request" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="453" y="240" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="unaeFwrHLOZ_5Hp_Zb34-6" target="unaeFwrHLOZ_5Hp_Zb34-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-6" value="开始执行" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="90" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="unaeFwrHLOZ_5Hp_Zb34-9" target="unaeFwrHLOZ_5Hp_Zb34-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-9" value="是否为同步代码" style="rhombus;whiteSpace=wrap;html=1;rounded=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="175" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-12" value="promise" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="455" y="340" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-14" value="marcro task" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="495" y="120" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-15" value="micro task" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="510" y="305" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.013;entryY=0.419;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="unaeFwrHLOZ_5Hp_Zb34-9" target="unaeFwrHLOZ_5Hp_Zb34-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="unaeFwrHLOZ_5Hp_Zb34-18" target="unaeFwrHLOZ_5Hp_Zb34-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-18" value="执行同步代码" style="whiteSpace=wrap;html=1;rounded=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="305" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-20" value="否" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="350" y="190" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-21" value="是" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="290" y="260" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-22" value="交给各个线程去监听" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="90" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="unaeFwrHLOZ_5Hp_Zb34-23" target="unaeFwrHLOZ_5Hp_Zb34-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-23" value="GUI 渲染" style="whiteSpace=wrap;html=1;rounded=1;sketch=1;curveFitting=1;jiggle=2;shadow=0;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="230" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-26" value="渲染结束" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="400" y="420" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="unaeFwrHLOZ_5Hp_Zb34-29" value="从中取已经可以执行的任务，微任务优先" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="294" y="30" width="240" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
