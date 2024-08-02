@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" modified="2024-07-26T11:25:54.259Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="veObivY3FRZWstCWtRNK" version="24.7.1" type="device">
+  <diagram name="第 1 页" id="nmEELFkpHKYNzTVvcKlU">
+    <mxGraphModel dx="1674" dy="1121" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="1920" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#ffcccc;strokeColor=#4D9900;curved=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;strokeWidth=4;" edge="1" parent="1" source="CwbuER8wX_RRmrVz7hyj-2" target="CwbuER8wX_RRmrVz7hyj-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-2" value="浏览器" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="1">
+          <mxGeometry x="520" y="545" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-4" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=4;sketch=1;curveFitting=1;jiggle=2;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=#b3b3b3;" vertex="1" parent="1">
+          <mxGeometry x="710" y="427.5" width="160" height="295" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-5" value="浏览器进程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=#b3b3b3;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="730" y="442.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=4;fillColor=#ffff88;strokeColor=#B266FF;" edge="1" parent="1" source="CwbuER8wX_RRmrVz7hyj-6" target="CwbuER8wX_RRmrVz7hyj-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-6" value="&lt;font color=&quot;#000000&quot;&gt;渲染进程&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="730" y="482.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-7" value="浏览器进程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="730" y="527.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-8" value="GPU 进程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="734" y="572" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-9" value="网络进程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="734" y="612.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-10" value="......" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="734" y="662.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-11" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=4;strokeColor=#666666;sketch=1;curveFitting=1;jiggle=2;fillColor=#f5f5f5;gradientColor=#b3b3b3;" vertex="1" parent="1">
+          <mxGeometry x="940" y="380" width="160" height="235" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-12" value="JS 引擎线程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#36393d;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="960" y="390" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-13" value="事件触发线程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="960" y="522.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-14" value="GUI 线程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="960" y="565" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-15" value="定时器触发线程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="960" y="475" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CwbuER8wX_RRmrVz7hyj-16" value="HTTP 请求线程" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#36393d;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="960" y="430" width="120" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
