@@ -7,6 +7,7 @@ export default {
   '/typescript': fragmentNav,
   '/javascript': fragmentNav,
   '/net': fragmentNav,
+  '/engineer': fragmentNav,
   '/browser': fragmentNav,
   '/react': reactNav,
 };

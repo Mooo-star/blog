@@ -71,6 +71,15 @@ export default [
     ],
   },
   {
+    title: '工程化',
+    children: [
+      {
+        title: 'NPM Script',
+        link: '/engineer/npm_script',
+      },
+    ],
+  },
+  {
     title: '算法',
     children: [
       {
