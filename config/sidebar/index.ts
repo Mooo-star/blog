@@ -6,5 +6,7 @@ export default {
   '/leetcode': fragmentNav,
   '/typescript': fragmentNav,
   '/javascript': fragmentNav,
+  '/net': fragmentNav,
+  '/browser': fragmentNav,
   '/react': reactNav,
 };
