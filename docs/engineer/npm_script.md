@@ -115,7 +115,7 @@ Output:
 ### [参数 & 环境变量](https://docs.npmjs.com/cli/v10/commands/npm#configuration)
 
 - 参数：可以使用 `--key val` 来设置参数，`key` 为参数名，`val` 为参数值。当然，你也可以不传参数值，不传的话默认为 `true`
-- 环境变量：可以通过在环境变量中使用 `npm_config_` 作为名称前缀来设置任何配置。需要注意的是，所有以 `npm_config_` 开头的环境变量都会被解释为配置，并且不区分大小写。
+- 环境变量：可以通过在环境变量中使用 `npm_config_` 作为名称前缀来设置任何配置。需要注意的是，所有以 `npm_config_` 开头的环境变量都会被解释为配置，并且不区分大小写。同样也可以拿到 `package.json` 中的配置信息
 
 详情可以参见这 npm 原链接，https://docs.npmjs.com/cli/v10/commands/npm#configuration 、https://docs.npmjs.com/cli/v10/using-npm/config
 
@@ -181,3 +181,178 @@ npm 脚本的原理非常简单。每当执行 npm run，就会自动新建一�
 - --silent: --loglevel silent
 
 ### 钩子
+
+相信大家应该见过下面的脚本
+
+```json
+{
+  "scripts": {
+    "precompress": "echo precompress",
+    "compress": "echo compress",
+    "postcompress": "echo postcompress"
+  }
+}
+```
+
+像这样的脚本，我们在运行 `npm run compress` 的时候会按照顺序执行 `precompress`、`compress`、`postcompress`，三个命令，输出如下：
+
+```bash
+> node@1.0.0 precompress
+> echo precompress
+
+precompress
+
+> node@1.0.0 compress
+> echo compress
+
+compress
+
+> node@1.0.0 postcompress
+> echo postcompress
+```
+
+这是 npm 提供的功能，利用这个特性我们可以拆分我们的脚本，让其更专注的干一件事情。
+
+### Life Cycle Script
+
+:::info{title=Tip}
+下面附上 GPT 给出的 NPM LifeCycle Script
+:::
+
+1. preinstall
+   - 描述：在包安装开始之前执行的脚本。这是在 npm 处理依赖关系之前的最早时机。
+
+- 使用场景：通常用于安装某些全局依赖、环境准备工作或者检查依赖版本等。
+
+2. install
+
+- 描述：在包安装过程中执行的脚本，通常在依赖已经下载并解压后执行。
+- 使用场景：用于构建项目、生成配置文件或执行安装后需要的额外任务。
+
+3. postinstall
+
+- 描述：在包及其所有依赖安装完成之后执行的脚本。
+- 使用场景：可以用于完成安装后的一些清理工作、配置文件调整、生成文档等。
+
+4. preuninstall
+
+- 描述：在包卸载之前执行的脚本。
+- 使用场景：用于在卸载前进行数据备份或通知其他系统即将进行卸载。
+
+5. uninstall
+
+- 描述：在包卸载过程中执行的脚本。
+- 使用场景：可以用于清理配置文件、注销服务或其他卸载过程中需要的操作。
+
+6. postuninstall
+
+- 描述：在包及其依赖卸载完成后执行的脚本。
+- 使用场景：用于完成卸载后的清理任务，通知其他系统卸载已经完成等。
+
+7. preversion
+
+- 描述：在 npm 版本号变更之前执行的脚本。
+- 使用场景：用于在发布新版本之前做准备工作，比如运行测试、代码格式化、更新版本信息等。
+
+8. version
+
+- 描述：在版本号变更时执行的脚本，通常用于修改版本号。
+- 使用场景：可以用于在版本号变更时自动更新文档或 changelog，或执行其他版本号变更相关的任务。
+
+9. postversion
+
+- 描述：在版本号变更并提交到版本控制系统之后执行的脚本。
+- 使用场景：用于发布新版本后执行的一些操作，比如推送到远程仓库、发布到 npm registry 等。
+
+10. prepublishOnly
+
+- 描述：在 npm publish 或 npm install 之前执行，但不会在本地安装时执行（即，不在 npm install <pkg> 或 npm link 时触发）。
+- 使用场景：用于确保在发布之前所有的准备工作都已经完成，如编译、测试等。
+
+11. prepack
+
+- 描述：在包被打包之前执行的脚本。
+- 使用场景：通常用于在打包前进行构建或准备工作。
+
+12. postpack
+
+- 描述：在包打包完成之后执行的脚本。
+- 使用场景：用于清理打包过程中的临时文件或者发布打包结果。
+
+13. prepare
+
+- 描述：在 npm install、npm publish、npm pack 和 npm link 之前执行。如果使用了 Git，git push 和 git pull 也会触发它。
+- 使用场景：常用于在安装或发布之前构建项目，确保项目是准备好的。
+
+14. prepublish
+
+- 描述：这个脚本在任何类型的发布之前运行（包括 npm publish 和 npm install）。目前已被拆分成 prepublishOnly 和 prepare 两个独立脚本，通常不再单独使用。
+- 使用场景：用于项目发布之前的准备工作，但现在多使用 prepublishOnly。
+
+15. pretest
+
+- 描述：在运行测试脚本之前执行。
+- 使用场景：用于在测试前准备环境，如编译代码、设置测试数据库等。
+
+16. test
+
+- 描述：执行项目的测试脚本，通常是 npm test 命令的核心部分。
+- 使用场景：用于运行项目的测试套件。
+
+17. posttest
+
+- 描述：在测试脚本运行完毕后执行。
+- 使用场景：用于测试后进行清理或报告生成等任务。
+
+18. prestart
+
+- 描述：在项目启动脚本之前执行。
+- 使用场景：用于在启动项目之前设置环境变量、启动依赖服务等。
+
+19. start
+
+- 描述：执行项目的启动脚本，通常用于运行应用程序或服务器。
+- 使用场景：用于启动应用程序，常见于开发和生产环境。
+
+20. poststart
+
+- 描述：在项目启动脚本之后执行。
+- 使用场景：用于在项目启动后执行额外的任务，如发送通知或监控启动状态等。
+
+21. prestop
+
+- 描述：在项目停止脚本之前执行。
+- 使用场景：用于在停止应用之前执行的一些准备工作，如通知用户、保存状态等。
+
+22. stop
+
+- 描述：执行项目的停止脚本，通常用于关闭应用程序或服务器。
+- 使用场景：用于停止应用程序，常见于开发和生产环境。
+
+23. poststop
+
+- 描述：在项目停止脚本之后执行。
+- 使用场景：用于停止应用后执行的清理任务，如关闭数据库连接、清除缓存等。
+
+24. prerestart
+
+- 描述：在重启项目之前执行。
+- 使用场景：通常用于在应用重启前执行的任务，如备份数据、重新加载配置等。
+
+25. restart
+
+- 描述：执行项目的重启脚本，通常包括停止和启动的组合。
+- 使用场景：用于重启应用程序。
+
+26. postrestart
+
+- 描述：在重启项目之后执行。
+- 使用场景：用于重启后执行的任务，如确认服务状态、发送通知等。
+
+详细的生命周期钩子的特性还请看[官方文档](https://docs.npmjs.com/cli/v10/using-npm/scripts#life-cycle-scripts)给出的解释
+
+## 参考文章
+
+- [npm script 详解](https://juejin.cn/post/6917533974285778957)
+- [npm scripts 使用指南](https://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)
+- [npm 官网](https://docs.npmjs.com/)
