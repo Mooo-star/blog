@@ -8,3 +8,4 @@
 - [ ] js 中的 proxy、onerror 事件监听
 - [ ] 手写 Promise
 - [ ] Promise 执行输出
+- [x] 数组方法

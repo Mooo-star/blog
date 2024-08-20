@@ -43,4 +43,8 @@ export default [
     title: 'Array 方法详解',
     link: '/javascript/array',
   },
+  {
+    title: '手写 Promise',
+    link: '/javascript/promise',
+  },
 ];
