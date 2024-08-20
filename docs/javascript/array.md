@@ -538,7 +538,6 @@ console.log(arr); // [1, 2, 3, 4, 5]
 2. push
 3. shift
 4. unshift
-5. slice
-6. splice
-7. sort
-8. reverse
+5. splice
+6. sort
+7. reverse
