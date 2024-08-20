@@ -39,4 +39,8 @@ export default [
     title: '浮点数精度问题',
     link: '/javascript/floating-point-precision',
   },
+  {
+    title: 'Array 方法详解',
+    link: '/javascript/array',
+  },
 ];
