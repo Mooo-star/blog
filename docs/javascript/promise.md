@@ -8,6 +8,79 @@ group:
 toc: content
 ---
 
+## Promise A+
+
+我们想要手写一个 Promise，就要遵循 Promise/A+ 规范，业界所有 Promise 的类库都遵循这个规范。
+
+其实 Promise/A+ 规范对如何实现一个符合标准的 Promise 类库已经阐述的很详细了。每一行代码在 Promise/A+ 规范中都有迹可循，所以在下面的实现的过程中，我会尽可能的将代码和 Promise/A+ 规范一一对应起来。
+
+下面开始步入正题啦～
+
+## 基础版 Promise
+
+首先，我们要知道 Promise 他有什么样的状态，什么样的方法。接下来就是我们去实现它。
+
+先来做一些前置工作：
+
+Promise 有着三种状态，那么我们先来定义三个常量来记录这三种状态。
+
+```js
+// 记录Promise的三种状态
+const PENDING = 'pending';
+const FULFILLED = 'fulfilled';
+const REJECTED = 'rejected';
+```
+
+Promise 属于一个微任务，要放到微任务队列中，所以我们写一个函数来模拟一下
+
+```js
+/**
+ * 运行一个微队列任务
+ * 把传递的函数放到微队列中
+ * @param {Function} callback
+ */
+function runMicroTask(callback) {
+  // 判断node环境
+  // 为了避免「变量未定义」的错误，这里最好加上前缀globalThis
+  // globalThis是一个关键字，指代全局对象，浏览器环境为window，node环境为global
+  if (globalThis.process && globalThis.process.nextTick) {
+    process.nextTick(callback);
+  } else if (globalThis.MutationObserver) {
+    const p = document.createElement('p');
+    const observer = new MutationObserver(callback);
+    observer.observe(p, {
+      childList: true, // 观察该元素内部的变化
+    });
+    p.innerHTML = '1';
+  } else {
+    setTimeout(callback, 0);
+  }
+}
+```
+
+ok，到这里，我们的准备工作就做的差不多了，接下来就是要去实现最基本的 Promise。
+
+先回忆一下 Promise 怎么使用
+
+```js
+const pro = new Promise((res, rej) => {
+  res(1);
+});
+
+pro
+  .then((res) => {
+    console.log(1);
+  })
+  .catch((err) => {
+    console.log('err', err);
+  })
+  .finally(() => {
+    console.log('finally');
+  });
+```
+
+请问，上面的代码输出什么呢？
+
 ```js
 // 记录Promise的三种状态
 const PENDING = 'pending';
