@@ -299,6 +299,8 @@ class MyPromise {
 
 最后，Promise 还有很多的静态方法，这里就不一一赘述这些方法是怎么写的了，直接附上一份最完整的代码供各位大佬们审阅。
 
+## 完整版
+
 ```js
 // 记录Promise的三种状态
 const PENDING = 'pending';
