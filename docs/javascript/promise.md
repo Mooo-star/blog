@@ -257,7 +257,6 @@ class MyPromise {
       return;
     }
     // 下面这个判断是为了处理value为Promise的情况
-    // 这一段代码课程中没有涉及，特此注释说明
     if (isPromise(value)) {
       value.then(this._resolve.bind(this), this._reject.bind(this));
       return;
