@@ -69,3 +69,45 @@ package.json 是前端项目中的一个重要配置文件，它存储了项目�
 这个配置是用来安装可执行程序的，用于指定可执行脚本的入口点。在全局安装这个 npm 包的时候，该文件将链接到全局 bins 目录内，或者将创建一个 cmd（Windows 命令文件），以执行 bin 字段中指定的文件，这样就可以在终端中运行我们的 npm 包了。比如 vite webpack umi 等等。
 
 当然 bin 中引用的文件需要以 `#!/user/bin/env node` 作为文件的开头，指定 node 的运行环境。
+
+## peerDependencies
+
+当我们开发一个模块的时候，如果当前模块与所依赖的模块同时依赖一个第三方模块，并且依赖的是两个不兼容的版本时就会出现问题。
+
+比如，你的项目依赖 A 模块和 B 模块的 1.0 版，而 A 模块本身又依赖 B 模块的 2.0 版。
+
+大多数情况下，这不构成问题，B 模块的两个版本可以并存，同时运行。但是，有一种情况，会出现问题，就是这种依赖关系将暴露给用户。
+
+```json
+{
+  "peerDependencies": {
+    "less": "3.9.x"
+  }
+}
+```
+
+peerDependency 声明依赖库的特点：
+
+- 如果用户显式依赖了核心库，则可以忽略各插件的 peerDependency 声明；
+
+- 如果用户没有显式依赖核心库，则按照插件 peerDependencies 中声明的版本将库安装到项目根目录中；
+
+- 当用户依赖的版本、各插件依赖的版本之间不相互兼容，会报错让用户自行修复；
+
+注意，从 npm 3.0 版开始，peerDependencies 不再会默认安装了。就是初始化的时候不会默认带出。
+
+## bundledDependencies
+
+bundledDependencies 指定发布的时候会被一起打包的模块.
+
+```json
+{
+  "name": "test",
+  "version": "1.0.0",
+  "bundledDependencies": ["bundleD1", "bundleD2"]
+}
+```
+
+## optionalDependencies
+
+如果一个依赖模块可以被使用， 同时你也希望在该模块找不到或无法获取时 npm 继续运行，你可以把这个模块依赖放到 optionalDependencies 配置中。这个配置的写法和 dependencies 的写法一样，不同的是这里边写的模块安装失败不会导致 npm install 失败。
