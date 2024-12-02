@@ -6,7 +6,10 @@
 
 - [ ] performance、navigator 相关 api
 - [ ] js 中的 proxy、onerror 事件监听
-- [x] 手写 Promise
+- [ ] package.json 持续更新中
 - [ ] Promise 执行输出
+- [ ] webpack 热更新原理
+- [ ] 加密解密
+- [x] 手写 Promise
 - [x] Https 的加密过程及其工作原理
 - [x] 数组方法
