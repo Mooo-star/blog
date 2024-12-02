@@ -70,6 +70,37 @@ package.json 是前端项目中的一个重要配置文件，它存储了项目�
 
 当然 bin 中引用的文件需要以 `#!/user/bin/env node` 作为文件的开头，指定 node 的运行环境。
 
+## resolutions
+
+在 package.json 文件中，resolutions 字段是一个相对较新（在某些包管理场景下）且非常有用的配置项。它主要用于在使用像 Yarn（从 Yarn Berry 版本开始）等包管理器时，强制指定依赖项的版本，以解决依赖冲突问题。
+
+使用示例
+
+假设你的项目中有如下依赖关系导致冲突：
+
+你的主项目依赖 packageA 和 packageB。packageA 依赖lodash@4.17.21，packageB 依赖lodash@4.17.20。
+为了解决这个问题，在 package.json 中添加 resolutions 字段：
+
+```json
+{
+  "name": "your - project - name",
+  "version": "1.0.0",
+  "dependencies": {
+    "packageA": "^1.0.0",
+    "packageB": "^1.0.0"
+  },
+  "resolutions": {
+    "lodash": "4.17.21"
+  }
+}
+```
+
+这里通过 resolutions 字段指定了整个项目中 lodash 的版本应该是 4.17.21。当使用支持 resolutions 字段的包管理器（如 Yarn Berry）安装或更新依赖时，它会按照这个配置来解决 lodash 的版本冲突。
+
+:::info{title=注意}
+大家在使用这个字段的时候要确定当前项目所使用的 「包管理器」 是否支持这个属性，需要查阅相关的文档，因为这个属性并不是一个标准属性
+:::
+
 ## peerDependencies
 
 当我们开发一个模块的时候，如果当前模块与所依赖的模块同时依赖一个第三方模块，并且依赖的是两个不兼容的版本时就会出现问题。
