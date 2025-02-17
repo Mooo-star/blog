@@ -86,3 +86,124 @@ var searchInsert = function (nums, target) {
   return left;
 };
 ```
+
+### <a href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/description/" target="_blank" rel="noopener noreferrer">在排序数组中查找元素的第一个和最后一个位置 - leetcode 34</a>
+
+:::info
+这道题在面试的时候直接遍历解答出来也是没问题的，就是效率可能不是很高。
+
+使用二分的思路，就是各自寻找左右的边界值，最后再判断结果的返回就好了
+:::
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function (nums, target) {
+  let leftBoard = getLeftBoard(nums, target);
+  let rightBoard = getRightBoard(nums, target);
+  if (leftBoard == -2 || rightBoard == -2) return [-1, -1];
+  if (rightBoard - leftBoard > 1) return [leftBoard + 1, rightBoard - 1];
+  return [-1, -1];
+};
+
+var getRightBoard = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  let rightBoard = -2;
+
+  while (left <= right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (nums[mid] > target) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+      rightBoard = left;
+    }
+  }
+
+  return rightBoard;
+};
+
+var getLeftBoard = function (nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  let leftBoard = -2;
+
+  while (left <= right) {
+    let mid = left + Math.floor((right - left) / 2);
+    if (nums[mid] >= target) {
+      right = mid - 1;
+      leftBoard = right;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+  return leftBoard;
+};
+```
+
+### <a href="https://leetcode.cn/problems/sqrtx/description/" target="_blank" rel="noopener noreferrer">x 的平方根 - leetcode 69</a>
+
+```js
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function (x) {
+  let left = 0,
+    right = x;
+
+  let ret = -1;
+
+  while (left <= right) {
+    const mid = Math.round((right + left) / 2);
+
+    if (mid * mid <= x) {
+      ret = mid;
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return ret;
+};
+```
+
+### <a href="https://leetcode.cn/problems/valid-perfect-square/" target="_blank" rel="noopener noreferrer">有效的完全平方数 - leetcode 367</a>
+
+```js
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isPerfectSquare = function (num) {
+  let left = 0,
+    right = num;
+
+  while (left <= right) {
+    const mid = Math.round((right + left) / 2);
+    if (mid * mid === num) return true;
+    if (mid * mid < num) {
+      left = mid + 1;
+    }
+    if (mid * mid > num) {
+      right = mid - 1;
+    }
+  }
+
+  return false;
+};
+```
+
+## 双指针
+
+### <a href="https://leetcode.cn/problems/remove-element/description/" target="_blank" rel="noopener noreferrer">移除元素 - leetcode 27</a>
+
+```js
+
+```
