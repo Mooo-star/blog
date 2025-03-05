@@ -30,4 +30,12 @@ export default [
     title: 'TypeScript',
     children: typescript,
   },
+  {
+    title: '其他',
+    children: [{
+      title: '微前端',
+      link: '/other/micro_frontend',
+    },],
+  },
+
 ];

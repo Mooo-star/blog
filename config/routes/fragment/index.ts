@@ -15,5 +15,9 @@ export default {
     ...engineer,
     ...leetcode,
     ...typescript,
+    {
+      title: '微前端',
+      link: '/other/micro-frontend',
+    },
   ],
 };

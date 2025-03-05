@@ -9,5 +9,6 @@ export default {
   '/net': fragmentNav,
   '/engineer': fragmentNav,
   '/browser': fragmentNav,
+  "/other": fragmentNav,
   '/react': reactNav,
 };
