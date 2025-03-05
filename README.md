@@ -15,7 +15,7 @@
 - [x] 数组方法
 - [ ] 关于这个命令相关的配置参数的介绍吧 `pnpm -r --filter react-webapp run clean`
 - [ ] 算法 - 数组相关 Doing
-- [ ] 手写 mini React
+- [x] 手写 mini React
 - [ ] React 源码
   - [x] 优化策略
   - [x] diff 算法
