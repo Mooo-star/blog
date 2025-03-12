@@ -4,6 +4,7 @@ import javascript from '../../routes/fragment/javascript';
 import leetcode from '../../routes/fragment/leetcode';
 import net from '../../routes/fragment/net';
 import typescript from '../../routes/fragment/typescript';
+import other from '../../routes/fragment/other'
 
 export default [
   {
@@ -32,10 +33,6 @@ export default [
   },
   {
     title: '其他',
-    children: [{
-      title: '微前端',
-      link: '/other/micro_frontend',
-    },],
+    children: other,
   },
-
 ];

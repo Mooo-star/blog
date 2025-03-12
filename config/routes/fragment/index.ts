@@ -4,6 +4,7 @@ import javascript from './javascript';
 import leetcode from './leetcode';
 import net from './net';
 import typescript from './typescript';
+import other from './other'
 
 export default {
   title: '知识碎片',
@@ -15,9 +16,6 @@ export default {
     ...engineer,
     ...leetcode,
     ...typescript,
-    {
-      title: '微前端',
-      link: '/other/micro-frontend',
-    },
+    ...other,
   ],
 };
